@@ -1,4 +1,3 @@
-import "./categories.styles.scss";
 import CategoryMenu from "./components/category-menu/category-menu.components";
 import { categories } from "./data/categories";
 
