@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -17,6 +19,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formField, setFormField] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formField;
+  const navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormField(defaultFormFields);
@@ -37,6 +40,7 @@ const SignUpForm = () => {
 
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
+      navigate("/shop");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, user already in use!");

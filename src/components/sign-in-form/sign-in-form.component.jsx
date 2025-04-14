@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
@@ -15,9 +17,11 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formField, setFormField] = useState(defaultFormFields);
   const { email, password } = formField;
+  const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
+    navigate("/");
   };
 
   const resetFormFields = () => {
@@ -30,6 +34,7 @@ const SignInForm = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate("/shop");
     } catch (error) {
       if (error.code === "auth/invalid-credential") {
         alert("Invalid Email or Password!");
