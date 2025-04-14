@@ -34,7 +34,7 @@ const SignInForm = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
-      navigate("/shop");
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/invalid-credential") {
         alert("Invalid Email or Password!");
