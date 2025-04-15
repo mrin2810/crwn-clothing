@@ -59,7 +59,7 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("done");
+  console.log("Collections created in Firebase!");
 };
 
 export const getCategoriesAndDocuments = async () => {
