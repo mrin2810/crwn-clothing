@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Fragment, useContext } from "react";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
